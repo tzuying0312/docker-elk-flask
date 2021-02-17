@@ -9,8 +9,14 @@
 
 - `bash index_pattern.sh`
 
-#### 送 log 至 ELK
+#### 傳送傳文字檔至 ELK
 
+- `cd example`
+- `nc 127.0.0.1 5000 < helloworld.txt`
+
+#### 透過 python 送 log 至 ELK
+
+- `cd example`
 - `pip install python-logstash`
 - `python test_logging.py`
 

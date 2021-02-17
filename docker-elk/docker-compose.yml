@@ -12,6 +12,8 @@ services:
       - "9300:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      #new
+      ELASTICSEARCH_URL: "http://elasticsearch:9200"
     networks:
       - elk
 
@@ -26,6 +28,8 @@ services:
       - "12201:12201/udp"
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      #new
+      ELASTICSEARCH_URL: "http://elasticsearch:9200"
     networks:
       - elk
     depends_on:
