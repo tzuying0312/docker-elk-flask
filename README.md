@@ -20,6 +20,16 @@
 - `pip install python-logstash`
 - `python test_logging.py`
 
+#### logstash.conf
+- 路徑 docker-elk/logstash/pipeline/logstash.conf
+- 管理 log，logstash 的配置主要分為三部分
+    - input 預先做簡單的類別判斷
+    - filter 使用不同的規則進行切割
+    - output 選擇輸出的方式與位置
+- example
+    - `cd example`
+    - `nc localhost < test_filter.log`
+
 ## Note
 
 #### 透過 docker-compose.yml 設定 port
@@ -47,3 +57,4 @@ UDP(用戶資料包協定)
 ## REF
 
 - [docker-elk-tutorial](https://github.com/twtrubiks/docker-elk-tutorial/tree/master)
+- [logstash 輸入配置](https://ithelp.ithome.com.tw/articles/10186351)
