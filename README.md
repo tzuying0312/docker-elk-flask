@@ -26,7 +26,8 @@
     - input 預先做簡單的類別判斷
     - filter 使用不同的規則進行切割
     - output 選擇輸出的方式與位置
-- example
+- filter:grok、json、mutate、geoip
+- grok example
     - `cd example`
     - `nc localhost < test_filter.log`
 
