@@ -55,9 +55,9 @@ curl -H "Content-Type: application/json" -XPOST http://127.0.0.1:9200/logstash-2
     "message" : "This is a meaage for testing POST"
 }'
 ```
-- "http://127.0.0.1:9200/ " : server:IP位址
-- "logstash-2016.02.18/ " : index:database
-- "testPOST" : type:table
+- http://127.0.0.1:9200/  server:IP位址
+- logstash-2016.02.18/  index:database
+- testPOST  type:table
 - TABLE testPOST 新增了 userNme, @timestamp, message 的資料
 - 透過回傳內容的其中資訊 _id 作為後續更新或刪除的依據
 
@@ -85,11 +85,12 @@ curl -H "Content-Type: application/json" -XPOST http://127.0.0.1:9200/logstash-2
 ```
 
 #### DELETE
+- 刪除單筆 index
 ```
 curl -XDELETE http://127.0.0.1:9200/logstash-2021.02.18
 ```
 
-#### 刪除多筆 index
+- 刪除多筆 index
 ```
 curl -XDELETE http://127.0.0.1:9200/logstash-2021.02.*
 ```
