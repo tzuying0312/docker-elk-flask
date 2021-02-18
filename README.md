@@ -21,6 +21,7 @@
 - `python test_logging.py`
 
 #### logstash.conf
+
 - 路徑 docker-elk/logstash/pipeline/logstash.conf
 - 管理 log，logstash 的配置主要分為三部分
     - input 預先做簡單的類別判斷
@@ -31,16 +32,19 @@
     - `cd example`
     - `nc localhost < test_filter.log`
 
-## Note
 
-#### 透過 docker-compose.yml 設定 port
+#### port 
 
+- 透過 docker-compose.yml 設定
+- 路徑 docker-elk/docker-compose.yml
 ```
 5000: Logstash TCP input
 9200: Elasticsearch HTTP
 9300: Elasticsearch TCP transport
 5601: Kibana
 ```
+
+## Note
 
 #### TCP VS UDP
 
