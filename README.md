@@ -44,6 +44,56 @@
 5601: Kibana
 ```
 
+## Elastic CRUD
+- example 路徑 example/elastic_crud.sh
+
+#### CREATE
+```
+curl -H "Content-Type: application/json" -XPOST http://127.0.0.1:9200/logstash-2021.02.18/testPOST -d  '{
+    "userName" : "user1",
+    "@timestamp" : "2021-02-18T16:52:54.550Z",
+    "message" : "This is a meaage for testing POST"
+}'
+```
+- "http://127.0.0.1:9200/ " : server:IP位址
+- "logstash-2016.02.18/ " : index:database
+- "testPOST" : type:table
+- TABLE testPOST 新增了 userNme, @timestamp, message 的資料
+- 透過回傳內容的其中資訊 _id 作為後續更新或刪除的依據
+
+#### READ
+- 取得單筆紀錄
+```
+curl -XGET http://127.0.0.1:9200/logstash-2021.02.18/testPOST/JaJRtHcBFfG4LKHAz41t?pretty
+```
+
+- 取得特定 type 所有紀錄
+```
+curl -XGET http://127.0.0.1:9200/logstash-2021.02.18/testPOST/_search?pretty
+```
+
+#### UPDATE
+- doc：修改 documents 下的 userName 欄位
+- 回傳結果其中資訊 _version 為此 id 被異動的次數
+
+```
+curl -H "Content-Type: application/json" -XPOST http://127.0.0.1:9200/logstash-2021.02.18/testPOST/JaJRtHcBFfG4LKHAz41t/_update  -d '{
+    "doc" : {
+    "userName" : "user2"
+     }
+ }'
+```
+
+#### DELETE
+```
+curl -XDELETE http://127.0.0.1:9200/logstash-2021.02.18
+```
+
+#### 刪除多筆 index
+```
+curl -XDELETE http://127.0.0.1:9200/logstash-2021.02.*
+```
+
 ## Note
 
 #### TCP VS UDP
